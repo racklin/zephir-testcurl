@@ -1,0 +1,10 @@
+ARG_ENABLE("testcurl", "enable testcurl", "no");
+
+if (PHP_TESTCURL != "no") {
+  EXTENSION("testcurl", "testcurl.c", null, "-I"+configure_module_dirname);
+  ADD_SOURCES(configure_module_dirname + "/kernel", "main.c memory.c exception.c hash.c debug.c backtrace.c object.c array.c string.c fcall.c require.c file.c operators.c concat.c variables.c filter.c iterator.c exit.c", "testcurl");
+  ADD_SOURCES(configure_module_dirname + "/kernel/extended", "array.c", "testcurl");
+  
+  ADD_SOURCES(configure_module_dirname + "/testcurl", "simple.zep.c", "testcurl");
+  ADD_FLAG("CFLAGS_TESTCURL", "/D ZEPHIR_RELEASE");
+}
