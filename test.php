@@ -2,6 +2,12 @@
 
 dl("testcurl.so");
 
-$c = new \Testcurl\Simple();
+use Testcurl\Simple;
 
-echo $c->version();
+echo "libcurl version = " . Simple::version() . PHP_EOL ;
+
+// display readme 
+
+$url = 'https://raw.githubusercontent.com/racklin/zephir-testcurl/master/README.md';
+
+Simple::getUrlContent($url);

@@ -47,6 +47,6 @@
         "extensions": []
     },
     "package-dependencies": {
-        "libcurl": ">= 6.30"
+        "libcurl": ">= 7.20"
     }
 }
